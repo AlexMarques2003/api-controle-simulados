@@ -8,6 +8,7 @@ public class ApiControleSimuladosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApiControleSimuladosApplication.class, args);
+		System.out.println("Aplicação no ar");
 	}
 
 }
