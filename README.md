@@ -5,3 +5,7 @@ Repositório do programa de controle de simulados
 - SPRING BOOT
 - JPA
 - H2
+- Flyway
+- Swagger
+
+A documentação da api pode ser encontrada no Swagger

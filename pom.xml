@@ -30,6 +30,13 @@
 		    <version>2.1.210</version>
 		    <scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.22</version>
+		    <scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -45,6 +52,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+		<dependency>
+		    <groupId>org.flywaydb</groupId>
+		    <artifactId>flyway-core</artifactId>
+		    <version>8.5.2</version>
+		</dependency>			
 	</dependencies>
 	<build>
 		<plugins>
@@ -52,6 +65,20 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+			    <groupId>org.flywaydb</groupId>
+			    <artifactId>flyway-maven-plugin</artifactId>
+			    <version>8.5.2</version>
+			    <configuration>
+			        <user>admin</user>
+			        <password>123456</password>
+			        <schemas>
+			            <schema>ControleSimulado</schema>
+			        </schemas>
+			        
+			    </configuration>
+			</plugin>			
+			
 		</plugins>
 	</build>
 	<repositories>
