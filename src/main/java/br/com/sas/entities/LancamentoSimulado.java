@@ -2,105 +2,58 @@ package br.com.sas.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString(includeFieldNames = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name="lancamentos")
 public class LancamentoSimulado implements Serializable{
 	
 	private static final long serialVersionUID = 8281179939868467422L;
 
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)		
 	private Long id;
-	private Long simulado;
+		
+	@Column(name = "simulado", nullable = false)
+	@ManyToOne(fetch = FetchType.EAGER)	
+	private Long simulado;	
+	
+	@Column(name = "prova", nullable = false)
+	@ManyToMany(mappedBy="prova", fetch = FetchType.LAZY)	
 	private Long prova;
-	private Long aluno;
+	
+	@Column(name = "aluno", nullable = false)
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Aluno aluno;
+	
+	@Column(name = "questao", nullable = false)	
 	private Long questao;
+	
+	@Column(name = "resposta", nullable = false)
 	private String resposta;
 	
-	public LancamentoSimulado() {
-		
-	}
-	
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getSimulado() {
-		return simulado;
-	}
-
-	public void setSimulado(Long simulado) {
-		this.simulado = simulado;
-	}
-
-	public Long getProva() {
-		return prova;
-	}
-
-	public void setProva(Long prova) {
-		this.prova = prova;
-	}
-
-	public Long getAluno() {
-		return aluno;
-	}
-
-	public void setAluno(Long aluno) {
-		this.aluno = aluno;
-	}
-
-
-
-
-
-
-	public Long getQuestao() {
-		return questao;
-	}
-
-
-
-
-
-
-	public void setQuestao(Long questao) {
-		this.questao = questao;
-	}
-
-
-
-
-
-
-	public String getResposta() {
-		return resposta;
-	}
-
-
-
-
-
-
-	public void setResposta(String resposta) {
-		this.resposta = resposta;
-	}
-
-
-
-
-
-
-	@Override
-	public String toString() {
-		return "LancamentoSimulado [id=" + id + ", simulado=" + simulado + ", prova=" + prova + ", aluno=" + aluno
-				+ ", questao=" + questao + ", resposta=" + resposta + "]";
-	}
+	@OneToOne(mappedBy="nivel")
+	private Nivel nivel;
 	
 	
 	
