@@ -1,15 +1,15 @@
-package br.com.sas.repositories;
-
-import java.util.Optional;
+package br.com.sas.api.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.sas.entities.Aluno;
+import br.com.sas.api.entities.Aluno;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
-	
-	Optional<Aluno> findById(Long id);
-	
+
 	Aluno findByNome(String nome);
+
+	default Aluno findByEmail(String email) {
+		return null;
+	}
 
 }

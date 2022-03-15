@@ -1,4 +1,4 @@
-package br.com.sas.entities;
+package br.com.sas.api.entities;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="simulado")
+@Table(name="tbSimulados")
 public class Simulado implements Serializable {
 
 	private static final long serialVersionUID = -2879734550335318222L;

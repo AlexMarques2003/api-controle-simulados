@@ -1,11 +1,10 @@
-package br.com.sas.entities;
+package br.com.sas.api.entities;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,22 +23,27 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="nivel")
-public class Nivel implements Serializable{
+@Table(name="tbGabaritos")
+public class Gabarito implements Serializable {
 
-	private static final long serialVersionUID = -6974974288546183426L;
+	private static final long serialVersionUID = 6532462652310997513L;
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)		
 	private Long id;
 	
-	@Column(name = "descricao", nullable = false)
-	private String descricao;
+	@Column(name = "prova", nullable = false)
+	@ManyToMany(mappedBy = "prova") 
+	private List<Prova> prova;
+
+	@Column(name = "questao", nullable = false)	
+	private Long questao;
 	
-	@Column(name = "pontuacao", nullable = false)
-	private Long pontuacao;
+	@Column(name = "resposta", nullable = false)
+	private String resposta;
 	
-	@ManyToMany(mappedBy="nivel", fetch = FetchType.LAZY)
-	private List<Gabarito> gabaritos;
-		
+	@Column(name = "nivel", nullable = false)
+	@ManyToMany(mappedBy = "nivel") 
+	private List<Nivel> niveis;
+	
 }

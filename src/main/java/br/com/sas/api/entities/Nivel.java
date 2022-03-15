@@ -1,4 +1,4 @@
-package br.com.sas.entities;
+package br.com.sas.api.entities;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -25,22 +24,22 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="prova")
-public class Prova implements Serializable {
+@Table(name="tbNiveis")
+public class Nivel implements Serializable{
 
-	private static final long serialVersionUID = -8844272168141705806L;
-
+	private static final long serialVersionUID = -6974974288546183426L;
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)		
 	private Long id;
-
-	@Column(name = "materia", nullable = false)	
-	private String materia;
 	
-	@OneToOne(mappedBy="prova", fetch = FetchType.LAZY)
-	private Gabarito gabarito;
+	@Column(name = "descricao", nullable = false)
+	private String descricao;
 	
-	@ManyToMany(mappedBy="prova", fetch = FetchType.LAZY)
-	private List<LancamentoSimulado> lancamentos;
+	@Column(name = "pontuacao", nullable = false)
+	private Float pontuacao;
 	
+	@ManyToMany(mappedBy="nivel", fetch = FetchType.LAZY)
+	private List<Gabarito> gabaritos;
+		
 }
