@@ -9,7 +9,7 @@ public interface AlunoService {
     /**
      * Persiste um aluno na base de dados.
      *
-     * @param aluno
+     * @parametro aluno
      * @return Aluno
      */
     Aluno persistir(Aluno aluno);
@@ -37,9 +37,5 @@ public interface AlunoService {
      * @return Optional<Aluno>
      */
     Optional<Aluno> buscarPorEmail(String email);
-
-
-
-
 
 }

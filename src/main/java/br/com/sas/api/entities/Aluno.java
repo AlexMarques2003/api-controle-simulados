@@ -31,7 +31,4 @@ public class Aluno implements Serializable {
 	@Column(name = "email", nullable = false)
 	private String email;
 
-	@OneToMany(mappedBy="aluno", fetch = FetchType.LAZY)
-	private List<LancamentoSimulado> lancamentos;
-	
 }

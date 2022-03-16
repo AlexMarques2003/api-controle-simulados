@@ -35,9 +35,5 @@ public class Simulado implements Serializable {
 	
 	@Column(name = "descricao", nullable = false)
 	private String descricao;
-	
-	@ManyToMany(mappedBy="simulado", fetch = FetchType.LAZY)
-	private List<LancamentoSimulado> lancamentos;
-	
 
 }

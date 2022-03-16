@@ -36,10 +36,8 @@ public class Nivel implements Serializable{
 	@Column(name = "descricao", nullable = false)
 	private String descricao;
 	
-	@Column(name = "pontuacao", nullable = false)
-	private Float pontuacao;
-	
-	@ManyToMany(mappedBy="nivel", fetch = FetchType.LAZY)
-	private List<Gabarito> gabaritos;
+	@Column(name = "peso", nullable = false)
+	private Float peso;
+
 		
 }

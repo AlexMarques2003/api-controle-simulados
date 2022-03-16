@@ -37,10 +37,5 @@ public class Prova implements Serializable {
 	@Column(name = "materia", nullable = false)	
 	private String materia;
 	
-	@OneToOne(mappedBy="prova", fetch = FetchType.LAZY)
-	private Gabarito gabarito;
-	
-	@ManyToMany(mappedBy="prova", fetch = FetchType.LAZY)
-	private List<LancamentoSimulado> lancamentos;
-	
+
 }
