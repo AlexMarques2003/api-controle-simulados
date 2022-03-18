@@ -12,7 +12,8 @@ import org.springframework.context.annotation.Profile;
 @Setter
 @ToString
 @Configuration
-@ConfigurationProperties
+@ConfigurationProperties("spring.datasource")
+@SuppressWarnings("unused")
 public class DBConfiguration {
 
     private String driverClassName;
@@ -22,8 +23,8 @@ public class DBConfiguration {
 
     @Profile("test")
     @Bean
-    public String testDataBaseConnecion(){
-        System.out.println("DB connection for DEV - H2 - Teste");
+    public String testDataBaseConnection(){
+        System.out.println("DB connection for DEV - H2 - Test");
         System.out.println(driverClassName);
         System.out.println(url);
         return "DB Connection to H2 - Test instance";
@@ -31,10 +32,10 @@ public class DBConfiguration {
 
     @Profile("prod")
     @Bean
-    public String productionDataBaseConnecion(){
-        System.out.println("DB connection for PROD - H2 - Production");
+    public String productionDataBaseConnection(){
+        System.out.println("DB connection for PROD - Mysql - Production");
         System.out.println(driverClassName);
         System.out.println(url);
-        return "DB Connection to H2 - Prod instance";
+        return "DB Connection to Mysql - Prod instance";
     }
 }

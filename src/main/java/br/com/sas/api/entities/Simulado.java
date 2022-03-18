@@ -1,33 +1,21 @@
 package br.com.sas.api.entities;
 
+import lombok.*;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
 @Getter
 @Setter
-@ToString(includeFieldNames = true)
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name="tbSimulados")
 public class Simulado implements Serializable {
 
-	private static final long serialVersionUID = -2879734550335318222L;
+	private static final long serialVersionUID = -1222730842654701553L;
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)		
@@ -35,5 +23,8 @@ public class Simulado implements Serializable {
 	
 	@Column(name = "descricao", nullable = false)
 	private String descricao;
+
+	@Column(name = "status_finalizado", nullable = false)
+	private Boolean status;
 
 }

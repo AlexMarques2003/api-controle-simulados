@@ -2,24 +2,17 @@ package br.com.sas.api.controllers;
 
 import br.com.sas.api.dtos.AlunoDto;
 import br.com.sas.api.entities.Aluno;
-import br.com.sas.api.services.AlunoService;
 import br.com.sas.api.response.Response;
-
+import br.com.sas.api.services.AlunoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
@@ -30,22 +23,29 @@ public class AlunoController {
 
     private static final Logger log = LoggerFactory.getLogger(AlunoController.class);
 
-    @Autowired
+    @Autowired(required = false)
     private AlunoService alunoService;
 
     public AlunoController(){
 
     };
 
-    /**
-     * Atualiza os dados de um aluno.
-     *
-     * @param id
-     * @param alunoDto
-     * @param result
-     * @return ResponseEntity<Response<AlunoDto>>
-     * @throws NoSuchAlgorithmException
-     */
+    @GetMapping(value = "/email/{email}")
+    public ResponseEntity<Response<AlunoDto>> buscarPorEmail(@PathVariable("email") String email) {
+        log.info("Buscando aluno por Email: {}", email);
+        Response<AlunoDto> response = new Response<AlunoDto>();
+        Optional<Aluno> aluno = alunoService.buscarPorEmail(email);
+
+        if (!aluno.isPresent()) {
+            log.info("Aluno não encontrado para o Email: {}", email);
+            response.getErrors().add("Aluno não encontrado para o email " + email);
+            return ResponseEntity.badRequest().body(response);
+        }
+
+        response.setData(this.converterAlunoDto(aluno.get()));
+        return ResponseEntity.ok(response);
+    }
+
     @PutMapping(value = "/{id}")
     public ResponseEntity<Response<AlunoDto>> atualizar(@PathVariable("id") Long id,
                                                         @Valid @RequestBody AlunoDto alunoDto, BindingResult result) throws NoSuchAlgorithmException {
@@ -72,15 +72,6 @@ public class AlunoController {
         return ResponseEntity.ok(response);
     }
 
-
-    /**
-     * Atualiza os dados do aluno com base nos dados encontrados no DTO.
-     *
-     * @param aluno
-     * @param alunoDto
-     * @param result
-     * @throws NoSuchAlgorithmException
-     */
     private void atualizarDadosAluno(Aluno aluno, AlunoDto alunoDto, BindingResult result)
             throws NoSuchAlgorithmException {
         aluno.setNome(alunoDto.getNome());
@@ -93,12 +84,6 @@ public class AlunoController {
 
     }
 
-    /**
-     * Retorna um DTO com os dados de um aluno.
-     *
-     * @param aluno
-     * @return AlunoDto
-     */
     private AlunoDto converterAlunoDto(Aluno aluno) {
         AlunoDto alunoDto = new AlunoDto();
         alunoDto.setId(aluno.getId());

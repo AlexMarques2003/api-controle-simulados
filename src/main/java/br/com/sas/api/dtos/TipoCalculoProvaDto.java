@@ -4,13 +4,13 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString
+@ToString(includeFieldNames = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class AlunoDto {
+public class TipoCalculoProvaDto {
 
     private Long id;
-    private String nome;
-    private String email;
+    private String descricao;
 
 }
+
