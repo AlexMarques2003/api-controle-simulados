@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/app")
 public class AppController {
 
-    @Value("${app.message")
+    @Value("${app.message}")
     private String appMessage;
 
     @GetMapping(value= "/teste")

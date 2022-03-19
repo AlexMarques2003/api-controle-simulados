@@ -11,6 +11,7 @@ public class AlunoDto {
 
     private Long id;
     private String nome;
+
     private String email;
 
 }
