@@ -12,6 +12,10 @@ import java.io.Serializable;
 @Table(name="alunos")
 public class Aluno extends GenericEntity{
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
 	private String nome;
 	private String email;
 

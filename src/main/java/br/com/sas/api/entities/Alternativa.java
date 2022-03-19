@@ -2,10 +2,7 @@ package br.com.sas.api.entities;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @ToString
 @Getter
@@ -14,6 +11,10 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @Entity(name="alternativas")
 public class Alternativa extends GenericEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_questao")

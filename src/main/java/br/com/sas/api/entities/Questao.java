@@ -14,6 +14,10 @@ import java.util.List;
 @Entity(name="questoes")
 public class Questao extends GenericEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private Long ordem;
     private String enunciado;
 

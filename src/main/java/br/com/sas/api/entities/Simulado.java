@@ -13,6 +13,10 @@ import java.io.Serializable;
 @Entity(name="simulados")
 public class Simulado extends GenericEntity {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
 	private String descricao;
 	private Boolean status;
 	private Boolean calculado;

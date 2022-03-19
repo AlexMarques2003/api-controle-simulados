@@ -13,6 +13,10 @@ import java.io.Serializable;
 @Entity(name="provas")
 public class Prova extends GenericEntity {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
 	@ManyToOne
 	@JoinColumn(name = "id_simulado")
 	private Simulado simulado;

@@ -14,6 +14,9 @@ import java.io.Serializable;
 @Entity(name = "parametros")
 public class ParametrosServico extends GenericEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String chave;
     private Double valor;
     private String descricao;
