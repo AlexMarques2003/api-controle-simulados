@@ -2,29 +2,24 @@ package br.com.sas.api.entities;
 
 import lombok.*;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="tbAlternativas")
-public class Alternativa implements Serializable {
+@Entity(name="alternativas")
+public class Alternativa extends GenericEntity {
 
-    private static final long serialVersionUID = -5057507801963166725L;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_questao")
+    private Questao questao;
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "opcao", nullable = false)
     private String opcao;
-
-    @Column(name = "correta", nullable = false)
-    private String correta;
+    private Boolean correta;
 
 }

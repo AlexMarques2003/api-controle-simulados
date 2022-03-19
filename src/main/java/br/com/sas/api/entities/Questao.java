@@ -11,23 +11,21 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="tbQuestoes")
-public class Questao implements Serializable {
+@Entity(name="questoes")
+public class Questao extends GenericEntity {
 
-    private static final long serialVersionUID = 3089336424943878062L;
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+    private Long ordem;
+    private String enunciado;
 
     @ManyToOne()
     @JoinColumn(name="id_prova")
-    private Prova provas;
+    private Prova prova;
 
     @ManyToOne()
     @JoinColumn(name="id_nivel")
-    private Nivel niveis;
+    private Nivel nivel;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "questao")
+    private List<Alternativa> alternativa;
 
 }

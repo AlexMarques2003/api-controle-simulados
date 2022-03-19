@@ -2,25 +2,17 @@ package br.com.sas.api.entities;
 
 import lombok.*;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 @Getter
 @Setter
 @ToString()
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="tbTipos_Calculo_Prova")
-public class TipoCalculoProva implements Serializable {
+@Entity(name="tipos_calculo_prova")
+public class TipoCalculoProva extends GenericEntity {
 
-    private static final long serialVersionUID = -8006832511572891629L;
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "descricao", nullable = false)
     private String descricao;
 
 }
