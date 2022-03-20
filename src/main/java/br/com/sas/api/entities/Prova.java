@@ -1,22 +1,23 @@
 package br.com.sas.api.entities;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name="provas")
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
-public class Prova extends GenericEntity {
+@Entity(name="provas")
+public class Prova implements Serializable {
+
+	private static final long serialVersionUID = 4540855907451990482L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Getter(AccessLevel.PUBLIC)
 	private Long id;
 
 	@ManyToOne

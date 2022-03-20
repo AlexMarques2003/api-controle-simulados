@@ -10,7 +10,7 @@ import java.util.Date;
 @Setter
 @ToString
 @NoArgsConstructor
-public class ProvaDto extends GenericDto {
+public class ProvaDto {
 
     private String materia;
     private TipoCalculoProva tiposCalculoProva;

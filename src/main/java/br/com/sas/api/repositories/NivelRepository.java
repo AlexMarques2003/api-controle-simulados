@@ -9,5 +9,4 @@ public interface NivelRepository extends JpaRepository<Nivel, Long> {
 
     void deleteById(Long id);
 
-
 }

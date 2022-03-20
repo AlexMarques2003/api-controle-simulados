@@ -1,22 +1,23 @@
 package br.com.sas.api.entities;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-@Entity(name="questoes")
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
-public class Questao extends GenericEntity {
+@Entity(name="questoes")
+public class Questao implements Serializable {
+
+    private static final long serialVersionUID = -5228263324999568587L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter(AccessLevel.PUBLIC)
     private Long id;
 
     private Long ordem;

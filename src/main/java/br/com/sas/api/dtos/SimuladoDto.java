@@ -6,7 +6,7 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
-public class SimuladoDto extends GenericDto{
+public class SimuladoDto {
 
     private String descricao;
     private Boolean status;

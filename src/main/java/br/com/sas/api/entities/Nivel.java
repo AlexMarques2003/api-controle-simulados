@@ -1,25 +1,27 @@
 package br.com.sas.api.entities;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
-@Entity(name="niveis")
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
-public class Nivel extends GenericEntity{
+@Entity(name="niveis")
+public class Nivel implements Serializable {
+
+	private static final long serialVersionUID = -2819825963720354909L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Getter(AccessLevel.PUBLIC)
 	private Long id;
+
 	private String descricao;
 	private Double peso;
 

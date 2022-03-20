@@ -6,16 +6,20 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity(name="alternativas")
+
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
-public class Alternativa extends GenericEntity {
+@Entity(name="alternativas")
+public class Alternativa implements Serializable {
+
+    private static final long serialVersionUID = -7909426288909062904L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

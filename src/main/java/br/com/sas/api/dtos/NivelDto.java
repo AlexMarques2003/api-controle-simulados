@@ -1,7 +1,12 @@
 package br.com.sas.api.dtos;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@ToString
 public class NivelDto {
 
     private String descricao;

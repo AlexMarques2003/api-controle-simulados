@@ -1,21 +1,22 @@
 package br.com.sas.api.entities;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity(name="alunos")
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
-public class Aluno extends GenericEntity{
+@Entity(name="alunos")
+public class Aluno implements Serializable {
+
+	private static final long serialVersionUID = 2237669832816784578L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Getter(AccessLevel.PUBLIC)
 	private Long id;
 
 	private String nome;

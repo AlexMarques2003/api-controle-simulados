@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class AlternativaDto extends GenericDto{
+public class AlternativaDto {
 
     private Questao questao;
     private String opcao;

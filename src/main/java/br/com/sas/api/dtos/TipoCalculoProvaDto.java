@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class TipoCalculoProvaDto extends GenericDto {
+public class TipoCalculoProvaDto {
 
     private String descricao;
 

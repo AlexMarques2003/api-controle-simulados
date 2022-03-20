@@ -7,6 +7,6 @@ public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 
     void deleteById(Long id);
 
-    Aluno findByNomeOrEmail(String nome, String email);
+    Aluno findByEmail(String email);
 
 }
