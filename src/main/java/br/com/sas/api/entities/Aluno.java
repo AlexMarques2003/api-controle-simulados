@@ -1,15 +1,17 @@
 package br.com.sas.api.entities;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
-@ToString 
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor 
-@Entity
-@Table(name="alunos")
+@Entity(name="alunos")
+@ToString
+@Getter
+@Setter
+@NoArgsConstructor
 public class Aluno extends GenericEntity{
 
 	@Id

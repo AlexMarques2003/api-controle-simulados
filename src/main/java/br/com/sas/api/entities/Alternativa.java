@@ -1,15 +1,17 @@
 package br.com.sas.api.entities;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
+@Entity(name="alternativas")
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Entity(name="alternativas")
 public class Alternativa extends GenericEntity {
 
     @Id

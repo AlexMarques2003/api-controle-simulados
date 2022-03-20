@@ -16,15 +16,15 @@ insert into niveis(descricao, peso) values('FACIL', 15);
 insert into niveis(descricao, peso) values('MEDIA', 12);
 insert into niveis(descricao, peso) values('DIFICIL', 8);
 
-insert into provas(id_simulado, id_tipo_calculo, materia) values(1, 1, 'MATEMATICA');
-insert into provas(id_simulado, id_tipo_calculo, materia) values(1, 1, 'PORTUGUES');
-insert into provas(id_simulado, id_tipo_calculo, materia) values(1, 1, 'QUIMICA');
-insert into provas(id_simulado, id_tipo_calculo, materia) values(2, 1, 'MATEMATICA');
-insert into provas(id_simulado, id_tipo_calculo, materia) values(2, 1, 'PORTUGUES');
-insert into provas(id_simulado, id_tipo_calculo, materia) values(2, 1, 'QUIMICA');
-insert into provas(id_simulado, id_tipo_calculo, materia) values(3, 1, 'MATEMATICA');
-insert into provas(id_simulado, id_tipo_calculo, materia) values(3, 1, 'PORTUGUES');
-insert into provas(id_simulado, id_tipo_calculo, materia) values(3, 1, 'QUIMICA');
+insert into provas(id_simulado, id_tipo_calculo, materia, data) values(1, 1, 'MATEMATICA', '2021-01-01');
+insert into provas(id_simulado, id_tipo_calculo, materia, data) values(1, 1, 'PORTUGUES',  '2021-01-01');
+insert into provas(id_simulado, id_tipo_calculo, materia, data) values(1, 1, 'QUIMICA',    '2021-01-01');
+insert into provas(id_simulado, id_tipo_calculo, materia, data) values(2, 1, 'MATEMATICA', '2022-01-01');
+insert into provas(id_simulado, id_tipo_calculo, materia, data) values(2, 1, 'PORTUGUES',  '2022-01-01');
+insert into provas(id_simulado, id_tipo_calculo, materia, data) values(2, 1, 'QUIMICA',    '2022-01-01');
+insert into provas(id_simulado, id_tipo_calculo, materia, data) values(3, 1, 'MATEMATICA', '2023-01-01');
+insert into provas(id_simulado, id_tipo_calculo, materia, data) values(3, 1, 'PORTUGUES',  '2023-01-01');
+insert into provas(id_simulado, id_tipo_calculo, materia, data) values(3, 1, 'QUIMICA',    '2023-01-01');
 
 insert into parametros(chave, valor, descricao) values('VALORBASE', 600,'VALOR DEFAULT DA FORMULA 1');
 

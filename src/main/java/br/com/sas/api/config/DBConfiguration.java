@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Profile;
 @ToString
 @Configuration
 @ConfigurationProperties("spring.datasource")
-@SuppressWarnings("unused")
 public class DBConfiguration {
 
     private String driverClassName;

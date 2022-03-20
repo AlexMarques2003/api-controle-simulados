@@ -4,12 +4,12 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString(includeFieldNames = true)
+@ToString
 @NoArgsConstructor
-@AllArgsConstructor
-public class SimuladoDto {
+public class SimuladoDto extends GenericDto{
 
-    private Long id;
     private String descricao;
+    private Boolean status;
+    private Boolean calculado;
 
 }

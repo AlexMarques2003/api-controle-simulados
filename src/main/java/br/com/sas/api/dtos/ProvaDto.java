@@ -1,15 +1,22 @@
 package br.com.sas.api.dtos;
 
+import br.com.sas.api.entities.Simulado;
+import br.com.sas.api.entities.TipoCalculoProva;
 import lombok.*;
+
+import java.util.Date;
 
 @Getter
 @Setter
-@ToString(includeFieldNames = true)
+@ToString
 @NoArgsConstructor
-@AllArgsConstructor
-public class ProvaDto {
+public class ProvaDto extends GenericDto {
 
-    private Long id;
     private String materia;
+    private TipoCalculoProva tiposCalculoProva;
+    private Simulado simulado;
+    private Date data;
+
+
 
 }

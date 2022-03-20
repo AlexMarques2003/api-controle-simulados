@@ -1,0 +1,20 @@
+# Prod environment
+
+app:
+  message: This is the property file to the ${spring.application.name} specific to PROD Environment
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db1;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      show_sql: true
+      use_sql_comments: true
+      format_sql: true
+      type: trace
+

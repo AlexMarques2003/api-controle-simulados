@@ -1,16 +1,18 @@
 package br.com.sas.api.entities;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Date;
 
+@Entity(name="provas")
+@ToString
 @Getter
 @Setter
-@ToString(includeFieldNames = true)
 @NoArgsConstructor
-@AllArgsConstructor
-@Entity(name="provas")
 public class Prova extends GenericEntity {
 
 	@Id
@@ -27,5 +29,6 @@ public class Prova extends GenericEntity {
 
 	private String materia;
 
+	private Date data;
 
 }

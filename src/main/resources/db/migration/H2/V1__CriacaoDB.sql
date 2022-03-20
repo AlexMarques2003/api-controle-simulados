@@ -51,6 +51,7 @@ CREATE TABLE provas (
    id_simulado BIGINT,
    id_tipo_calculo BIGINT,
    materia VARCHAR(255) NOT NULL,
+   data DATE,
    CONSTRAINT pk_provas PRIMARY KEY (id)
 );
 

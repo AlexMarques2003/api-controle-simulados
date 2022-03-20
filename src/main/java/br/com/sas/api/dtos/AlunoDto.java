@@ -1,17 +1,17 @@
 package br.com.sas.api.dtos;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
-public class AlunoDto {
+public class AlunoDto extends GenericDto{
 
-    private Long id;
     private String nome;
-
     private String email;
 
 }

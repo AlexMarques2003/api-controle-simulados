@@ -1,16 +1,20 @@
 package br.com.sas.api.entities;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity(name="niveis")
+@ToString
 @Getter
 @Setter
-@ToString()
 @NoArgsConstructor
-@AllArgsConstructor
-@Entity(name="niveis")
 public class Nivel extends GenericEntity{
 
 	@Id

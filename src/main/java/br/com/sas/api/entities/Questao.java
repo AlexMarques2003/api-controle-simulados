@@ -1,17 +1,18 @@
 package br.com.sas.api.entities;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
+@Entity(name="questoes")
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Entity(name="questoes")
 public class Questao extends GenericEntity {
 
     @Id

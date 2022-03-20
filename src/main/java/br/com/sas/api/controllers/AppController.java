@@ -12,7 +12,7 @@ public class AppController {
     @Value("${app.message}")
     private String appMessage;
 
-    @GetMapping(value= "/teste")
+    @GetMapping(value= "/verificaStatusAplicacao")
     public String getAppMessage(){
         return appMessage;
     }

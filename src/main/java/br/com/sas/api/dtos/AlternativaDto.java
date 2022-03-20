@@ -1,5 +1,7 @@
 package br.com.sas.api.dtos;
 
+import br.com.sas.api.entities.Questao;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,9 +11,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class TipoCalculoProvaDto extends GenericDto {
+public class AlternativaDto extends GenericDto{
 
-    private String descricao;
+    private Questao questao;
+    private String opcao;
+    private Boolean correta;
 
 }
-

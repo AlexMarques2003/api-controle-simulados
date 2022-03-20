@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ApiControleSimuladosApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(ApiControleSimuladosApplication.class, args);
+
 	}
 
 }

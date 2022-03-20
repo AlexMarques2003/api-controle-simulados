@@ -1,17 +1,20 @@
 package br.com.sas.api.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.io.Serializable;
 
+@Entity(name = "parametros")
+@ToString
 @Getter
 @Setter
-@Entity(name = "parametros")
+@NoArgsConstructor
 public class ParametrosServico extends GenericEntity {
 
     @Id
