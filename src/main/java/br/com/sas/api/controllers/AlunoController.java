@@ -34,6 +34,25 @@ public class AlunoController {
         this.alunoService = alunoService;
     }
 
+    @GetMapping(value = "/")
+    public ResponseEntity<Response<AlunoDto>> bucarTodos() {
+
+        log.info("Buscando todos os alunos.");
+
+        Response<AlunoDto> response = new Response<AlunoDto>();
+
+        Optional<Aluno> aluno = alunoService.buscarTodos();
+
+        if (!aluno.isPresent()) {
+            log.info("Alunos não encontrados");
+            response.getErrors().add("Alunos não encontrados.");
+            return ResponseEntity.badRequest().body(response);
+        }
+
+        response.setData(this.converterAlunoDto(aluno.get()));
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping(value = "/email/{email}")
     public ResponseEntity<Response<AlunoDto>> buscarPorEmail(@PathVariable("email") String email) {
 

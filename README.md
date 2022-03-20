@@ -15,26 +15,34 @@ A API foi desenvolvida em Java(OpenJdk11), utilizando Spring Boot e IntelliJ IDE
 - Swagger - para documentação das apis
 - Integração contínua com TravisCI
 
-# Como executar a aplicação
+# Como executar a aplicação.
 
 Certifique-se de ter o Maven instalado e adicionado ao PATH de seu sistema operacional, assim como o Git.
+
 Passo a passo para instalação do maven em: https://dicasdejava.com.br/como-instalar-o-maven-no-windows/
 
 # Baixando o projeto
+
 1 - Abra o prompt de comando e acesse o diretório onde deseja baixar o projeto
+
 2 - Execute o comando: git clone https://github.com/AlexMarques2003/api-controle-simulados.git ou via ssh: git@github.com:AlexMarques2003/api-controle-simulados.git
 
 # Rodando o Programa
+
 1 - Acesse o diretório raiz do projeto baixado: api-controle-simulados
+
 2 - Rode o comando mvn clean package 
+
 3 - Depois rode o comando spring-boot:run
 
 # Endpoints
+
 Acesse a documentação através do Sistema através do Swagger
 
 Link do Swagger: http://localhost:8080/swagger-ui.html
 
 #Importando o projeto para o Eclipse
+
 Importando o projeto no Eclipse ou STS
 
 No terminal, execute a seguinte operação:

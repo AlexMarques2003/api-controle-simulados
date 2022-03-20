@@ -13,5 +13,7 @@ public interface AlunoService {
     Optional<Aluno> buscarPorId(Long id);
     Optional<Aluno> buscarPorNome(String nome);
     Optional<Aluno> buscarPorEmail(String email);
+    Optional<Aluno> buscarTodos();
+
 
 }
