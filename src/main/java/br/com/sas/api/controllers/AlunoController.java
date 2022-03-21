@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 import java.util.Optional;
 
 
@@ -108,6 +109,22 @@ public class AlunoController {
         return ResponseEntity.ok(response);
     }
 
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Response<String>> remover(@PathVariable("id") Long id) {
+        log.info("Removendo aluno: {}", id);
+        Response<String> response = new Response<String>();
+
+        Aluno aluno = this.alunoService.buscarPorId(id);
+
+        if (Objects.isNull(aluno)) {
+            log.info("Erro ao remover devido ao aluno ID: {} ser inválido.", id);
+            response.getErrors().add("Erro ao remover aluno. Registro não encontrado para o id " + id);
+            return ResponseEntity.badRequest().body(response);
+        }
+
+        this.alunoService.remover(id);
+        return ResponseEntity.ok(new Response<String>());
+    }
 
     private void validarDadosExistentes(AlunoDto alunoDto, BindingResult result) {
 

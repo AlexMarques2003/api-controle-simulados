@@ -28,4 +28,14 @@ public class AlunoServiceImpl implements AlunoService {
         return Optional.ofNullable(this.alunoRepository.findByEmail(email));
     }
 
+    public Aluno buscarPorId(Long id) {
+        log.info("Buscando um aluno pelo ID {}", id);
+        return this.alunoRepository.findById(id).orElse(null);
+    }
+
+    public void remover(Long id) {
+        log.info("Removendo o aluno pelo ID {}", id);
+        this.alunoRepository.deleteById(id);
+    }
+
 }

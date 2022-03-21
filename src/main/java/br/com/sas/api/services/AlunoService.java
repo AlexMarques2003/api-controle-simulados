@@ -12,4 +12,8 @@ public interface AlunoService {
 
     Optional<Aluno> buscarPorEmail(String email);
 
+    Aluno buscarPorId(Long id);
+
+    void remover(Long id);
+
 }
