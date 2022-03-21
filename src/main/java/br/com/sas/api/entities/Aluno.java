@@ -16,7 +16,6 @@ public class Aluno implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter(AccessLevel.PUBLIC)
 	private Long id;
 
 	private String nome;

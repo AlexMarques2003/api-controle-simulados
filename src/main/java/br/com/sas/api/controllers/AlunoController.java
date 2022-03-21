@@ -60,7 +60,6 @@ public class AlunoController {
         return ResponseEntity.ok(response);
     }
 
-
     @PostMapping
     public ResponseEntity<Response<AlunoDto>> cadastrar(@Valid @RequestBody AlunoDto alunoDto,
                                                                 BindingResult result) throws NoSuchAlgorithmException {
@@ -84,6 +83,30 @@ public class AlunoController {
         return ResponseEntity.ok(response);
     }
 
+    @PutMapping(value = "/{email}")
+    public ResponseEntity<Response<AlunoDto>> atualizar(@PathVariable("email") String email,
+                                                              @Valid @RequestBody AlunoDto alunoDto, BindingResult result) throws NoSuchAlgorithmException {
+        log.info("Atualizando aluno: {}", alunoDto.toString());
+        Response<AlunoDto> response = new Response<AlunoDto>();
+
+        Optional<Aluno> aluno = this.alunoService.buscarPorEmail(email);
+        if (!aluno.isPresent()) {
+            result.addError(new ObjectError("aluno", "Aluno não encontrado."));
+        }
+
+        this.atualizarDadosAluno(aluno.get(), alunoDto, result);
+
+        if (result.hasErrors()) {
+            log.error("Erro validando aluno: {}", result.getAllErrors());
+            result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
+            return ResponseEntity.badRequest().body(response);
+        }
+
+        this.alunoService.persistir(aluno.get());
+        response.setData(this.converterAlunoDto(aluno.get()));
+
+        return ResponseEntity.ok(response);
+    }
 
 
     private void validarDadosExistentes(AlunoDto alunoDto, BindingResult result) {

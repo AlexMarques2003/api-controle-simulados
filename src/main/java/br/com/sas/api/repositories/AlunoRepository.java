@@ -5,8 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 
-    void deleteById(Long id);
-
     Aluno findByEmail(String email);
 
 }
