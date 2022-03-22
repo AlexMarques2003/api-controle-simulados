@@ -13,7 +13,6 @@ public class AlunoDto {
     @Getter(AccessLevel.PUBLIC)
     private Long id;
 
-    @NotEmpty(message = "Nome não pode ser vazio.")
     private String nome;
     private String email;
 
